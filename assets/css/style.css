@@ -1,26 +1,22 @@
-h1{
-    text-align:center;
-}
-h2{
-    text-align:center;
-}
-p{text-align:center;
-}
-body{ border-width: 2px;
-    
-}
-#adiv{
-    text-align:center;
-    color:red;
-    border:solid, 2px, black;}
+h1{text-align:center;}
+h2{text-align:center;}
+p{text-align:center;}
+
+#adiv{text-align:center;
+    color:red;}
 
 #qdiv{text-align: center;
-    
-}
-#btn{
-    text-align:center;
-}
-#start{
-    text-align:center;
+color:green;}
+
+#start{text-align:center;
     color: white;
-};
+}
+footer{position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid tomato;
+    color: #ffffff;
+    background-color:#666666;
+    text-align: center;
+margin-top:-50px;}

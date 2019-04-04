@@ -87,7 +87,7 @@ $(document).ready(function () {
             if (timer === -1) {
                 alert("Time's up!")
                 stop();
-                $("#adiv").empty()
+                $("#adiv").html("<h2>" + "Results" + "</h2>")
                 $("#qdiv").empty()
                 $("#cor").html("Questions correct: " + correct)
                 $("#incor").html("Questions incorrect: " + incorrect)
@@ -122,7 +122,8 @@ $(document).ready(function () {
                 correct++;
                 stop();
                 playerAnswer = "";
-                $("#adiv").html("Correct!");
+                $("#adiv").html("");
+                alert("correct")
                 qDisplay();
                 timer = 10;
                 runTimer(); //does timer speed up when you're right or wrong?
@@ -132,8 +133,9 @@ $(document).ready(function () {
                 incorrect++;
                 stop();
                 playerGuess = "";
-                $("#adiv").html("Incorrect!");
+                $("#adiv").html("");
                 qDisplay();
+                alert("Incorrect")
                 timer = 10;
                 runTimer(); //does timer speed up when you're right or wrong?
 
@@ -142,7 +144,7 @@ $(document).ready(function () {
                     alert("Game over!")
                     $("#cor").html("Questions correct: " + correct);
                     $("#incor").html("Questions incorrect: " + incorrect);
-                    $("#adiv").empty()
+                    $("#adiv").html("<h2>" + "Results" + "</h2>")
                     $("#qdiv").empty()
                     $("#timeleft").empty()
                     //Start a new game?
