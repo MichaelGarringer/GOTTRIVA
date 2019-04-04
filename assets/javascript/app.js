@@ -57,7 +57,7 @@ $(document).ready(function () {
     var correct = 0
     var incorrect = 0;
     var unanswered = 0;
-    var timer = 10;
+    var timer = 500;
     var intervalId;
     var running = false;
     var playerAnswer = "";
@@ -68,6 +68,7 @@ $(document).ready(function () {
     //TIMER FUNCTION
     $("#start").on("click", function () {
         $("#start").hide();
+        
         runTimer();
         qDisplay();
         for (var i = 0; i < Qs.length; i++) {
@@ -101,7 +102,6 @@ $(document).ready(function () {
     }
     //DISPLAY QUESTION and ANSWERS
     function qDisplay() {
-        $("#instuctions").empty();
         index = Math.floor(Math.random() * Qs.length);
         qchoice = Qs[index];
         $("#qdiv").html("<h3>" + qchoice.question + "</h3>")

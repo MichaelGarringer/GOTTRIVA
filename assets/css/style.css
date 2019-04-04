@@ -3,14 +3,17 @@ h2{text-align:center;}
 p{text-align:center;}
 
 #adiv{text-align:center;
-    color:red;
+    color: blue;
 border: solid, 2px, red }
 
 #qdiv{text-align: center;
-color:green;}
+color:red;}
 
 #start{text-align:center;
     color: white;
+}
+body{
+    background-color:burlywood;
 }
 footer{position: fixed;
     left: 0;
@@ -21,3 +24,12 @@ footer{position: fixed;
     background-color:#666666;
     text-align: center;
 margin-top:-50px;}
+#container{
+    opacity: 50%;
+    border-style:solid;
+    border-width: 1px;
+    border-color: black;
+    background: whitesmoke;
+    margin-right: 450px;
+    margin-left: 450px;
+}
