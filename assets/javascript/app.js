@@ -49,29 +49,27 @@ $(document).ready(function () {
             question: "Which one of these is not one of Daenerys' dragons? ",
             choice: ["Drogon ", "Rhaegal ", "Viserion ", "Tyrion "],
             correctAnswer: 3,
-        }];
+        },
+
+    ];
 
 
     var correct = 0
     var incorrect = 0;
     var unanswered = 0;
-    var timer = 20;
+    var timer = 10;
     var intervalId;
     var running = false;
-    var qNum = Qs.length
-    var userGuess = "";
+    var playerAnswer = "";
     var qchoice;
     var index;
-    var array = [];
     var placeholderArray = [];
-
 
     //TIMER FUNCTION
     $("#start").on("click", function () {
         $("#start").hide();
         runTimer();
         qDisplay();
-
         for (var i = 0; i < Qs.length; i++) {
             placeholderArray.push(Qs[i]);
         }
@@ -81,21 +79,20 @@ $(document).ready(function () {
         if (!running) {
             intervalId = setInterval(decrement, 750);
             running = true;
+            $("#timeleft").html("Time Remaining for this Question: " + timer);
         }
         function decrement() {
-            $("#timeleft").html(+ timer);
+            $("#timeleft").html("Time Remaining for this Question: " + timer);
             timer--;
             if (timer === -1) {
                 alert("Time's up!")
                 stop();
+                $("#adiv").empty()
+                $("#qdiv").empty()
                 $("#cor").html("Questions correct: " + correct)
                 $("#incor").html("Questions incorrect: " + incorrect)
-                $("#QU").html("Questions unanswered " + unanswered);
-                
-
-
+                $("#timeleft").empty()
             }
-
         }
     }
     function stop() {
@@ -104,16 +101,19 @@ $(document).ready(function () {
     }
     //DISPLAY QUESTION and ANSWERS
     function qDisplay() {
+        $("#instuctions").empty();
         index = Math.floor(Math.random() * Qs.length);
         qchoice = Qs[index];
-        $("#qdiv").html(qchoice.question)
+        $("#qdiv").html("<h3>" + qchoice.question + "</h3>")
         for (var i = 0; i < qchoice.choice.length; i++) {
             var playerAnswer = $("<div>");
             playerAnswer.addClass("answer");
             playerAnswer.html(qchoice.choice[i]);
             playerAnswer.attr("data-guessvalue", i);
             $("#adiv").append(playerAnswer);
-//How do you make it not repeat questions?
+
+
+            //How do you make it not repeat questions?
         }
         $(".answer").on("click", function () {
             playerAnswer = parseInt($(this).attr("data-guessvalue"));
@@ -124,9 +124,9 @@ $(document).ready(function () {
                 playerAnswer = "";
                 $("#adiv").html("Correct!");
                 qDisplay();
-                timer = 20;
+                timer = 10;
                 runTimer(); //does timer speed up when you're right or wrong?
-        
+
             }
             else {
                 incorrect++;
@@ -134,13 +134,24 @@ $(document).ready(function () {
                 playerGuess = "";
                 $("#adiv").html("Incorrect!");
                 qDisplay();
-                timer = 20;
+                timer = 10;
                 runTimer(); //does timer speed up when you're right or wrong?
-            
 
+                if ((incorrect + correct) === 10) {
+                    stop()
+                    alert("Game over!")
+                    $("#cor").html("Questions correct: " + correct);
+                    $("#incor").html("Questions incorrect: " + incorrect);
+                    $("#adiv").empty()
+                    $("#qdiv").empty()
+                    $("#timeleft").empty()
+                    //Start a new game?
+
+                }
             }
 
         });
+
 
     }
 

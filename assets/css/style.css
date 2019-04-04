@@ -6,8 +6,8 @@ h2{
 }
 p{text-align:center;
 }
-body{ background-image: url("/assets/images/ironthrone.JPG");
-
+body{ border-width: 2px;
+    
 }
 #adiv{
     text-align:center;
@@ -15,7 +15,7 @@ body{ background-image: url("/assets/images/ironthrone.JPG");
     border:solid, 2px, black;}
 
 #qdiv{text-align: center;
-    border: 2px, solid, black;
+    
 }
 #btn{
     text-align:center;
