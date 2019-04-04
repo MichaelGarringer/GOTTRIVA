@@ -1,1 +1,1 @@
-# GOTTRIVA
+# TriviaGame

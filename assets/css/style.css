@@ -1,0 +1,20 @@
+h1{
+    text-align:center;
+}
+p{text-align:center;
+}
+#adiv{
+    text-align:center;
+    color:red;
+}
+body{
+    background-image: url("assets\images\ironthrone.JPG");
+}
+
+#qdiv{text-align: center;
+    border: 2px, solid, black;
+}
+#start{
+    text-align:center;
+    color: red;
+}
