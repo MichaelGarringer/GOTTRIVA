@@ -36,7 +36,7 @@ $(document).ready(function () {
             correctAnswer: 1,
         },
         {
-            question: "What is the sigil of House Lannister",
+            question: "What is the sigil of House Lannister?",
             choice: ["Hawk ", "Wolf ", "Lion ", "Dog "],
             correctAnswer: 2,
         },
@@ -90,7 +90,7 @@ $(document).ready(function () {
                 stop();
                 $("#cor").html("Questions correct: " + correct)
                 $("#incor").html("Questions incorrect: " + incorrect)
-                $("#QU").html("Questions unanswersed" + unanswered);
+                $("#QU").html("Questions unanswered " + unanswered);
                 
 
 

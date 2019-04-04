@@ -1,20 +1,26 @@
 h1{
     text-align:center;
 }
+h2{
+    text-align:center;
+}
 p{text-align:center;
+}
+body{ background-image: url("/assets/images/ironthrone.JPG");
+
 }
 #adiv{
     text-align:center;
     color:red;
-}
-body{
-    background-image: url("assets\images\ironthrone.JPG");
-}
+    border:solid, 2px, black;}
 
 #qdiv{text-align: center;
     border: 2px, solid, black;
 }
+#btn{
+    text-align:center;
+}
 #start{
     text-align:center;
-    color: red;
-}
+    color: white;
+};
