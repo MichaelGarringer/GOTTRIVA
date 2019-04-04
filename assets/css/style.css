@@ -3,7 +3,8 @@ h2{text-align:center;}
 p{text-align:center;}
 
 #adiv{text-align:center;
-    color:red;}
+    color:red;
+border: solid, 2px, red }
 
 #qdiv{text-align: center;
 color:green;}
