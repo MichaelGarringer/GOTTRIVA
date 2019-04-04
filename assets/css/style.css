@@ -24,3 +24,6 @@ body{ border-width: 2px;
     text-align:center;
     color: white;
 };
+p{
+background: red;
+}
