@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $("#container").hide()
     var Qs = [
         {
             question: "What is the name of Jon's sword?",
@@ -56,8 +57,7 @@ $(document).ready(function () {
 
     var correct = 0
     var incorrect = 0;
-    var unanswered = 0;
-    var timer = 500;
+    var timer = 10;
     var intervalId;
     var running = false;
     var playerAnswer = "";
@@ -68,7 +68,11 @@ $(document).ready(function () {
     //TIMER FUNCTION
     $("#start").on("click", function () {
         $("#start").hide();
-        
+        $("#container").show();
+        $("#results").empty();
+        $("#cor").empty();
+        $("#incor").empty()
+        timer = 10
         runTimer();
         qDisplay();
         for (var i = 0; i < Qs.length; i++) {
@@ -88,11 +92,14 @@ $(document).ready(function () {
             if (timer === -1) {
                 alert("Time's up!")
                 stop();
-                $("#adiv").html("<h2>" + "Results" + "</h2>")
+                $("#results").html("<h2>" + "Results" + "</h2>")
+                $("#adiv").empty()
                 $("#qdiv").empty()
                 $("#cor").html("Questions correct: " + correct)
                 $("#incor").html("Questions incorrect: " + incorrect)
                 $("#timeleft").empty()
+                $("#start").html("Try again?")
+                $("#start").show()
             }
         }
     }
@@ -104,9 +111,9 @@ $(document).ready(function () {
     function qDisplay() {
         index = Math.floor(Math.random() * Qs.length);
         qchoice = Qs[index];
-        $("#qdiv").html("<h3>" + qchoice.question + "</h3>")
+        $("#qdiv").html(qchoice.question)
         for (var i = 0; i < qchoice.choice.length; i++) {
-            var playerAnswer = $("<div>");
+            var playerAnswer = $("<button> ");
             playerAnswer.addClass("answer");
             playerAnswer.html(qchoice.choice[i]);
             playerAnswer.attr("data-guessvalue", i);
@@ -120,13 +127,15 @@ $(document).ready(function () {
 
             if (playerAnswer === qchoice.correctAnswer) {
                 correct++;
+
                 stop();
                 playerAnswer = "";
                 $("#adiv").html("");
                 alert("correct")
                 qDisplay();
                 timer = 10;
-                runTimer(); //does timer speed up when you're right or wrong?
+                runTimer(); 
+                //does timer speed up when you're right or wrong?
 
             }
             else {
@@ -138,19 +147,21 @@ $(document).ready(function () {
                 alert("Incorrect")
                 timer = 10;
                 runTimer(); //does timer speed up when you're right or wrong?
-
+            }
                 if ((incorrect + correct) === 10) {
-                    stop()
-                    alert("Game over!")
+                    stop();
+                    alert("Game over!");
+                    $("#results").html("<h2>" + "Results" + "</h2>");
                     $("#cor").html("Questions correct: " + correct);
                     $("#incor").html("Questions incorrect: " + incorrect);
-                    $("#adiv").html("<h2>" + "Results" + "</h2>")
-                    $("#qdiv").empty()
-                    $("#timeleft").empty()
-                    //Start a new game?
-
+                    $("#adiv").empty();
+                    $("#qdiv").empty();
+                    $("#timeleft").empty();
+                    $("#start").html("Try again?");
+                    $("#start").show();
+                  
                 }
-            }
+            
 
         });
 
